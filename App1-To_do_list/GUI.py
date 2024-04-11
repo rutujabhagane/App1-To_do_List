@@ -2,6 +2,7 @@ import Functions_module
 import PySimpleGUI as sg
 import time
 import os
+# This is used to check whether a text file already exists or not
 if not os.path.exists("todofile.txt"):
     with open("todofile.txt", "w") as file:
         pass
