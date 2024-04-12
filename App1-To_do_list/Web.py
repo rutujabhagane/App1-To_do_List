@@ -11,8 +11,13 @@ def add_new_todo():
 
 
 
-for todo in todos:
+for index,todo in enumerate(todos):
 
-    st.checkbox(todo)
+    checkbox=st.checkbox(todo,key=todo)
+    if checkbox:
+        todos.pop(index)
+        Functions_module.write_to_file(todos)
+        del st.session_state[todo]
+        st.rerun()
 
 st.text_input(label="Enter a Todo",placeholder="Enter a new todo",on_change=add_new_todo,key="new_todo")
